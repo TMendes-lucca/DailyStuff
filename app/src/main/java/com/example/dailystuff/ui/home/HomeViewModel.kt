@@ -11,8 +11,14 @@ import com.example.dailystuff.R
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val _text = MutableLiveData<String>().apply {
+    private val _welcomeText = MutableLiveData<String>().apply {
         value = application.getString(R.string.hello_user)
     }
-    val text: LiveData<String> = _text
+
+    private val _whatWouldYouLikeText = MutableLiveData<String>().apply {
+        value = application.getString(R.string.what_would_you_like_to_know)
+    }
+
+    val whatWouldYouLikeText: LiveData<String> = _whatWouldYouLikeText
+    val welcomeText: LiveData<String> = _welcomeText
 }
