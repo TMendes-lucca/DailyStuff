@@ -37,12 +37,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        navView.setBackgroundColor(resources.getColor(R.color.teal_200))
-        navView.menu.findItem(R.id.nav_home).setOnMenuItemClickListener {
-            // change the backgroudn color
-            navView.setBackgroundColor(resources.getColor(R.color.teal_700))
-            true
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
