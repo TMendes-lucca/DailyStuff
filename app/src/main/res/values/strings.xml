@@ -12,4 +12,7 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="hello_user">Hello, User!</string>
     <string name="what_would_you_like_to_know">What would you like to know today?</string>
+    <string name="apod">APOD</string>
+    <string name="go_to_apod_page">Go to APOD page</string>
+    <string name="camera_icon">camera icon</string>
 </resources>
