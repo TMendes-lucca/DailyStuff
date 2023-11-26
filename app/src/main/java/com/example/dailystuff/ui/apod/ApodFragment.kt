@@ -55,6 +55,8 @@ class ApodFragment : Fragment() {
     }
 
     private fun fetchAPOD(){
+
+        //Open the coroutine and make the APOD Api call
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val apodResponse = APODServiceInstance.getAPOD()
@@ -63,6 +65,7 @@ class ApodFragment : Fragment() {
                         val imageUrl = apodResponse.body()?.url
                         val imageTitle = apodResponse.body()?.title
 
+                        //Set the components of the api call to the fragment views
                         imageUrl.let {
                             Picasso.get().load(it).into(apodImage)
                         }
