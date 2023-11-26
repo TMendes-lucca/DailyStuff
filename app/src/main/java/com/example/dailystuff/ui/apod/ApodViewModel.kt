@@ -6,8 +6,13 @@ import androidx.lifecycle.ViewModel
 
 class ApodViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is gallery Fragment"
+    private val _apodTitle = MutableLiveData<String>().apply {
+        value = "Image Title"
     }
-    val text: LiveData<String> = _text
+
+    val apodTitle: LiveData<String> = _apodTitle
+
+    fun setApodTitle(title: String){
+        _apodTitle.value = title
+    }
 }

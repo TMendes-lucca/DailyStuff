@@ -4,17 +4,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.dailystuff.data.api.apod.APODApiClient
 import com.example.dailystuff.databinding.FragmentApodBinding
+import com.squareup.picasso.Picasso
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ApodFragment : Fragment() {
 
-    private var _binding: FragmentApodBinding? = null
+    private lateinit var apodImage: ImageView
+    private lateinit var apodFragmentDescription: TextView
+    private lateinit var apodViewModel: ApodViewModel
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentApodBinding? = null
+    private val APODServiceInstance = APODApiClient.APODApiInstance
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,17 +32,48 @@ class ApodFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val galleryViewModel =
-            ViewModelProvider(this).get(ApodViewModel::class.java)
+
+        apodViewModel = ViewModelProvider(this).get(ApodViewModel::class.java)
 
         _binding = FragmentApodBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textGallery
-        galleryViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        apodImage = binding.apodImagePictureOfTheDay
+        apodFragmentDescription = binding.apodTextFragmentDescription
+
+        fetchAPOD()
+        observe()
+
         return root
+    }
+
+    private fun observe() {
+        apodViewModel.apodTitle.observe(viewLifecycleOwner) {
+            apodFragmentDescription.text = it
+        }
+
+    }
+
+    private fun fetchAPOD(){
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val apodResponse = APODServiceInstance.getAPOD()
+                if (apodResponse.isSuccessful) {
+                    withContext(Dispatchers.Main) {
+                        val imageUrl = apodResponse.body()?.url
+                        val imageTitle = apodResponse.body()?.title
+
+                        imageUrl.let {
+                            Picasso.get().load(it).into(apodImage)
+                        }
+                        apodViewModel.setApodTitle(imageTitle.toString())
+
+                    }
+                }
+            } catch (e: Exception) {
+                println("Error: $e")
+            }
+        }
     }
 
     override fun onDestroyView() {
