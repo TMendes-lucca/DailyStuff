@@ -15,7 +15,10 @@
     <string name="apod">APOD</string>
     <string name="go_to_apod_page">Go to APOD page</string>
     <string name="camera_icon">camera icon</string>
-    <string name="nasa_astronomy_picture_of_the_day">NASA Astronomy Picture of the Day</string>
+    <string name="nasa_astronomy_picture_of_the_day">NASA\'s Astronomy Picture of the Day</string>
     <string name="description">description</string>
     <string name="astronomy_picture_of_the_day">Astronomy picture of the day</string>
+    <string name="gradient_background">gradient background</string>
+    <string name="rocket_icon">Rocket icon</string>
+    <string name="apod_title">Apod Title</string>
 </resources>
