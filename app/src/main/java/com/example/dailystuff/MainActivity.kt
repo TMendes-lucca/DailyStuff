@@ -37,6 +37,28 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        navView.setNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.nav_home ->{
+                    navController.navigate(R.id.nav_home)
+                    drawerLayout.closeDrawers()
+                    true
+                }
+                R.id.nav_apod -> {
+                    navController.navigate(R.id.nav_apod)
+                    drawerLayout.closeDrawers()
+                    true
+                }
+                R.id.nav_slideshow -> {
+                    navController.navigate(R.id.nav_slideshow)
+                    drawerLayout.closeDrawers()
+                    true
+                }
+                else -> false
+            }
+
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -49,4 +71,5 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 }

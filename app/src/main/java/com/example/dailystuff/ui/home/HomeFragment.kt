@@ -6,12 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.dailystuff.R
 import com.example.dailystuff.databinding.FragmentHomeBinding
-import com.example.dailystuff.ui.apod.ApodFragment
 import com.google.android.material.card.MaterialCardView
 
 class HomeFragment : Fragment() {
@@ -39,9 +37,8 @@ class HomeFragment : Fragment() {
 
 
         //Navigate to APOD fragment
-        cardApod.setOnClickListener{
-            val navController = findNavController()
-            navController.navigate(R.id.nav_apod)
+        cardApod.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_home_to_nav_apod)
         }
 
         val textView: TextView = binding.homeTextWelcome
