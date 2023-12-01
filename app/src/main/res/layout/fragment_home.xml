@@ -13,6 +13,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/raleway_regular"
         android:text="@string/hello_user"
         android:textAlignment="center"
         android:textSize="34sp"
@@ -24,6 +25,7 @@
     <TextView
         android:id="@+id/home_text_subtext"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/raleway_regular"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/what_would_you_like_to_know"
@@ -79,6 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:text="@string/apod"
+                    android:fontFamily="@font/raleway_regular"
                     android:textSize="34sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/apod_rocket_icon"
