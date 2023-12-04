@@ -1,4 +1,4 @@
-package com.example.dailystuff.data.models.apod
+package com.example.dailystuff.data.api.apod.model
 
 import com.google.gson.annotations.SerializedName
 

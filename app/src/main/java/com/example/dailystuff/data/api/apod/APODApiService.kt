@@ -1,8 +1,9 @@
 package com.example.dailystuff.data.api.apod
 
-import com.example.dailystuff.data.models.apod.APODResponse
+import com.example.dailystuff.data.api.apod.model.APODResponse
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface APODApiService {

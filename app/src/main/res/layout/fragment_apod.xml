@@ -1,75 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/apod_root_element"
-    tools:context=".ui.apod.ApodFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <data>
+    <variable
+        name="vm"
+        type="com.example.dailystuff.ui.apod.ApodViewModel" />
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_marginTop="48dp"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:id="@+id/apod_root_element"
+        tools:context=".ui.apod.ApodFragment">
 
-
-        <TextView
-            android:id="@+id/apod_text_fragment_description"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="32dp"
-            android:fontFamily="@font/raleway_semibold"
-            android:text="@string/nasa_astronomy_picture_of_the_day"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/apod_text_apod_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/raleway_regular"
-            android:gravity="center_horizontal"
-            android:text="@string/apod_title"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:id="@+id/apod_image_picture_of_the_day"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/astronomy_picture_of_the_day"
-            android:cropToPadding="true"
-            android:maxHeight="500dp" />
-
-        <com.google.android.material.progressindicator.LinearProgressIndicator
-            android:id="@+id/apod_loading_state"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="32dp"
-            android:indeterminate="true"
-            android:layout_marginTop="256dp"
-            android:visibility="gone"
-            android:layout_gravity="center"
-           />
-
-        <TextView
-            android:id="@+id/apod_text_picture_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="32dp"
-            android:fontFamily="@font/raleway_regular"
-            android:paddingBottom="86dp"
-            android:text="@string/description" />
-
-    </LinearLayout>
+            android:layout_marginTop="48dp"
+            android:layout_height="wrap_content">
 
 
-</ScrollView>
+            <TextView
+                android:id="@+id/apod_text_fragment_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="32dp"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="@string/nasa_astronomy_picture_of_the_day"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/apod_text_apod_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_regular"
+                android:gravity="center_horizontal"
+                android:text="@{vm.apodTitle}"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/apod_image_picture_of_the_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/astronomy_picture_of_the_day"
+                android:cropToPadding="true"
+                android:maxHeight="500dp" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/apod_loading_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:indeterminate="true"
+                android:layout_marginTop="256dp"
+                android:visibility="gone"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/apod_text_picture_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/raleway_regular"
+                android:paddingBottom="86dp"
+                android:text="@string/description" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</layout>
