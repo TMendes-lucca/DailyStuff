@@ -7,7 +7,6 @@ import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface APODApiService {
-
     @GET("apod")
     suspend fun getAPOD(
         @Query("api_key") apiKey: String = "zetBCo8oehkAixRHbj2E4KMg18S49Jpsyd3KVT3L",

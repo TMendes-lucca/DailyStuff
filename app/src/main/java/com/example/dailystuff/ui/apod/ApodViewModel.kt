@@ -32,7 +32,6 @@ class ApodViewModel : ViewModel() {
     private var _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading
 
-
     // Possible Errors
     private var _hasErrorOcurred = MutableStateFlow(false)
     val hasErrorOcurred: StateFlow<Boolean> = _hasErrorOcurred
@@ -40,11 +39,11 @@ class ApodViewModel : ViewModel() {
     private var _errorMessage = MutableLiveData("Error Message")
     val errorMessage: LiveData<String> = _errorMessage
 
-    fun fetchAPOD(){
+    fun fetchAPOD() {
         _isLoading.value = true
         CoroutineScope(Dispatchers.IO).launch {
             val response = apodRepository.getAPOD()
-            if (response.success){
+            if (response.success) {
                 _apodImageUrl.postValue(response.data?.imageUrl)
                 _apodTitle.postValue(response.data?.title)
                 _apodDescription.postValue(response.data?.description)
@@ -57,8 +56,8 @@ class ApodViewModel : ViewModel() {
         }
     }
 
-    fun loadAPODImage(imageView: ImageView, imageUrl: String){
-        imageUrl.let{
+    fun loadAPODImage(imageView: ImageView, imageUrl: String) {
+        imageUrl.let {
             Picasso.get().load(it).into(imageView)
         }
     }

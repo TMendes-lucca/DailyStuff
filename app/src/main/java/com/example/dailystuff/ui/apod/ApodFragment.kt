@@ -24,15 +24,12 @@ import kotlinx.coroutines.withContext
 
 class ApodFragment : Fragment() {
 
-
     private var _binding: FragmentApodBinding? = null
 
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
 
         val apodViewModel = ViewModelProvider(this)[ApodViewModel::class.java]
@@ -41,7 +38,6 @@ class ApodFragment : Fragment() {
         binding.lifecycleOwner = this
 
         observe(apodViewModel)
-
 
         apodViewModel.fetchAPOD()
 
@@ -71,9 +67,7 @@ class ApodFragment : Fragment() {
                         binding.apodTextFragmentDescription.visibility = View.VISIBLE
                         binding.apodTextPictureDescription.visibility = View.VISIBLE
                         binding.apodLoadingState.visibility = View.GONE
-
                     }
-
                 }
             }
         }
@@ -83,5 +77,4 @@ class ApodFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

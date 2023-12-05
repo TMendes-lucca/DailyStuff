@@ -20,10 +20,4 @@
         android:name="com.example.dailystuff.ui.apod.ApodFragment"
         android:label="@string/apod"
         tools:layout="@layout/fragment_apod" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.dailystuff.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
 </navigation>

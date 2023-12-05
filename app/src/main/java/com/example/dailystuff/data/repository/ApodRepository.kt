@@ -8,19 +8,20 @@ class ApodRepository {
 
     private val apodDataSource = ApodDataSource()
     suspend fun getAPOD(): Response<APOD> {
-        try {
+        return try {
             val apodData = apodDataSource.getAPOD()
-            if (apodData != null){
+            if (apodData != null) {
                 val apod = APOD(
-                   apodData.url,
+                    apodData.url,
                     apodData.title,
                     apodData.explanation
                 )
-                return Response(true, "Success", apod)
+                Response(true, "Success", apod)
+            } else {
+                Response(false, "An API error Ocurred, please try again later", null)
             }
         } catch (ex: Exception) {
-            return Response(false, ex.message ?: "Error occurred", null)
+            Response(false, ex.message ?: "Error occurred", null)
         }
-        return Response(false, "Unknown error occurred", null)
     }
 }

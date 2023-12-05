@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object APODApiClient {
 
-    val APODApiInstance: APODApiService by lazy{
+    val APODApiInstance: APODApiService by lazy {
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://api.nasa.gov/planetary/")

@@ -16,6 +16,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private lateinit var cardApod: MaterialCardView
+    private lateinit var textWelcome: TextView
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -34,22 +35,25 @@ class HomeFragment : Fragment() {
 
         // Set the lateinit variables
         cardApod = binding.homeCardApod
-
+        textWelcome = binding.homeTextWelcome
 
         //Navigate to APOD fragment
         cardApod.setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_nav_apod)
         }
 
-        val textView: TextView = binding.homeTextWelcome
+        observe(homeViewModel)
+
+        return root
+    }
+
+    private fun observe(homeViewModel: HomeViewModel) {
         homeViewModel.welcomeText.observe(viewLifecycleOwner) {
-            textView.text = it
+            textWelcome.text = it
         }
         homeViewModel.whatWouldYouLikeText.observe(viewLifecycleOwner) {
             binding.homeTextSubtext.text = it
         }
-
-        return root
     }
 
     override fun onDestroyView() {
