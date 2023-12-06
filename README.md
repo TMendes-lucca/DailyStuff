@@ -20,10 +20,18 @@ Basta seguir os passos da instalação e conceder as permissões conforme solici
 
 ### Tema Claro
 
-| <img src="\assets\apodw1.jpg" height="450"/> | <img src="\assets\apodw2.jpg" height="450"/> | <img src="\assets\apodw3.jpg" height="450"/> | <img src="\assets\apodw3.jpg" height="450"/> |
+| <img src="\assets\apodw1.jpg" height="450"/> | <img src="\assets\apodw2.jpg" height="450"/> | <img src="\assets\apodw3.jpg" height="450"/> | <img src="\assets\apodw4.jpg" height="450"/> |
 |:--------------------------------------------:|:--------------------------------------------:|:--------------------------------------------:|:--------------------------------------------:|
 
 ### Tema Escuro
 
-| <img src="\assets\apodb1.jpg" height="450"/> | <img src="\assets\apodb2.jpg" height="450"/> | <img src="\assets\apodb3.jpg" height="450"/> | <img src="\assets\apodb3.jpg" height="450"/> |
+| <img src="\assets\apodb1.jpg" height="450"/> | <img src="\assets\apodb2.jpg" height="450"/> | <img src="\assets\apodb3.jpg" height="450"/> | <img src="\assets\apodb4.jpg" height="450"/> |
 |:--------------------------------------------:|:--------------------------------------------:|:--------------------------------------------:|:--------------------------------------------:|
+
+## Observações
+- Este aplicativo ainda está em fase de desenvolvimento e será constantemente atualizado
+
+### Funcionalidades programadas para lançamento
+- Implementação de um sistema de banco de dados com ROOM e cacheamento para armazenamento de dados
+- Implementação do consumo de outras APIs
+- Implementação de um sistema de login com autenticação
