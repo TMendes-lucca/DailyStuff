@@ -7,11 +7,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.dailystuff.R
 import com.example.dailystuff.databinding.FragmentHomeBinding
+import com.google.android.material.card.MaterialCardView
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
+    private lateinit var cardApod: MaterialCardView
+    private lateinit var textWelcome: TextView
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,16 +28,32 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+            ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        // Set the lateinit variables
+        cardApod = binding.homeCardApod
+        textWelcome = binding.homeTextWelcome
+
+        //Navigate to APOD fragment
+        cardApod.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_home_to_nav_apod)
         }
+
+        observe(homeViewModel)
+
         return root
+    }
+
+    private fun observe(homeViewModel: HomeViewModel) {
+        homeViewModel.welcomeText.observe(viewLifecycleOwner) {
+            textWelcome.text = it
+        }
+        homeViewModel.whatWouldYouLikeText.observe(viewLifecycleOwner) {
+            binding.homeTextSubtext.text = it
+        }
     }
 
     override fun onDestroyView() {
