@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_apod, R.id.nav_slideshow
+                R.id.nav_home, R.id.nav_apod
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -50,14 +50,8 @@ class MainActivity : AppCompatActivity() {
                     drawerLayout.closeDrawers()
                     true
                 }
-                R.id.nav_slideshow -> {
-                    navController.navigate(R.id.nav_slideshow)
-                    drawerLayout.closeDrawers()
-                    true
-                }
                 else -> false
             }
-
         }
     }
 
@@ -71,5 +65,4 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-
 }
