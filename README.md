@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-# DailyStuff
- 
-=======
 # Daily Stuff
 
 ## Um aplicativo para sanar curiosidades
